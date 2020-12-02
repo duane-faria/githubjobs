@@ -6,7 +6,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    box-shadow: border-box;
+    box-sizing: border-box;
+    border: none;
+    outline: 0;
   }
 
   html,body,#app{
