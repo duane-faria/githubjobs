@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import imagebg from 'assets/images/backgroundImg.png';
+import colors from 'style/colors';
+import { icons } from 'constants/index';
 
 export default function SearchBar() {
   return (
     <SearchWrapper>
       <BunttonGroup>
         <SearchInput placeholder='Título, empresas, nível, benefícios' />
-        <SearchButton>buscar</SearchButton>
+        <SearchButton>Buscar</SearchButton>
       </BunttonGroup>
     </SearchWrapper>
   );
@@ -29,10 +31,21 @@ const SearchWrapper = styled.section`
 
 const SearchInput = styled.input`
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
   outline: none;
   border: none;
   padding: 20px;
+  background: url(${icons.suitcase}) no-repeat no-repeat 15px center;
+  padding-left: 50px;
+  background-size: 25px;
+  color: ${colors.gray};
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: ${colors.gray};
+  }
+  :-ms-input-placeholder {
+    color: ${colors.gray};
+  }
 
   @media (max-width: 500px) {
     width: unset;
@@ -60,4 +73,5 @@ const BunttonGroup = styled.div`
   display: flex;
   flex: 1;
   margin: 0 10rem;
+  align-items: center;
 `;

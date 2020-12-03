@@ -13,6 +13,8 @@ export default function Input({ icon, placeholder, containerStyle }) {
 
 const Icon = styled.img`
   margin-right: 10px;
+  width: 15px;
+  height: 15px;
 `;
 
 const Container = styled.div`
@@ -27,6 +29,7 @@ const StyledInput = styled.input`
   outline: none;
   border: none;
   padding-left: 5px;
+  color: ${colors.gray};
   ::placeholder,
   ::-webkit-input-placeholder {
     color: ${colors.gray};

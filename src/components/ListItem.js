@@ -37,7 +37,7 @@ export default function ListItem({
         </Location>
 
         <Time>
-          <Icon src={icons.world} />
+          <Icon src={icons.watch} />
           {countTimePassed(created)}
         </Time>
       </RightCornerGroup>
@@ -142,9 +142,9 @@ const Icon = styled.img`
 
 const RightCornerGroup = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-self: flex-end;
-  width: 50%;
+  width: 40%;
   color: ${colors.gray};
   font-family: ${fonts.roboto};
   font-weight: 500;
