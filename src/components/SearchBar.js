@@ -17,13 +17,14 @@ export default function SearchBar() {
 const SearchWrapper = styled.section`
   height: 150px;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   background: url(${imagebg}) no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const SearchInput = styled.input`

@@ -16,7 +16,7 @@ export default function Aside() {
       <Input
         placeholder='País, estado, cidade'
         icon={icons.world}
-        containerStyle={{ marginBottom: '25px' }}
+        containerStyle={{ marginBottom: '25px', marginRight: '25px' }}
       />
       {locations.map((loc) => (
         <CheckBox title={loc} key={loc} style={{ marginBottom: '20px' }} />

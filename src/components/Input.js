@@ -17,7 +17,6 @@ const Icon = styled.img`
 
 const Container = styled.div`
   background: white;
-  width: 100%;
   display: flex;
   padding: 10px 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
@@ -25,7 +24,6 @@ const Container = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
   outline: none;
   border: none;
   padding-left: 5px;
