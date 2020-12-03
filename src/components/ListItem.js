@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 import colors from 'style/colors';
 import { fonts, icons } from 'constants/index';
 import { countTimePassed } from 'utils/date';
+import Badge from './Badge';
 
 export default function ListItem({
   logoUrl,
@@ -12,9 +14,11 @@ export default function ListItem({
   location,
   type,
   created,
+  param,
 }) {
+  const history = useHistory();
   return (
-    <Container>
+    <Container onClick={() => history.push('/detalhes', { job: param })}>
       <Main>
         {logoUrl ? (
           <CompanyLogo src={logoUrl} />
@@ -117,20 +121,6 @@ const Location = styled.small`
 
 const Time = styled.small`
   display: flex;
-  align-items: center;
-`;
-
-const Badge = styled.div`
-  border: 1px solid ${colors.secondary};
-  width: 63px;
-  height: 26px;
-  border-radius: 3px;
-  text-align: center;
-  transform: translateY(10px);
-  font-size: 12px;
-  font-family: ${fonts.roboto};
-  display: flex;
-  justify-content: center;
   align-items: center;
 `;
 

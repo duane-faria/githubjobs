@@ -1,5 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import colors from './colors';
+import { fonts } from 'constants/index';
+
 const GlobalStyle = createGlobalStyle`
   
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
@@ -12,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     border: none;
     outline: 0;
+  }
+
+  a {
+    text-decoration:none;
+    color:${colors.primary}
   }
 
   html,body,#app{
@@ -33,6 +41,17 @@ export const Container = styled.div`
   margin: 0 auto;
   margin-top: 20px;
   padding: 0 10px;
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  height: 40px;
+  font-family: ${fonts.roboto};
+  font-style: normal;
+  font-weight: 300;
+  color: ${colors.gray};
 `;
 
 export default GlobalStyle;

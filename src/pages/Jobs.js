@@ -11,9 +11,16 @@ export default function Jobs() {
 
   React.useEffect(() => {
     async function get() {
+      let dataStoraged = localStorage.getItem('jobs');
+      if (dataStoraged) {
+        setJobs(JSON.parse(dataStoraged));
+        console.log('cache on');
+        console.log(jobs);
+        return;
+      }
       const data = await getJobs();
-      console.log(data);
       setJobs(data);
+      localStorage.setItem('jobs', JSON.stringify(data));
     }
     get();
   }, []);
@@ -27,6 +34,7 @@ export default function Jobs() {
           {jobs &&
             jobs.map((job) => (
               <ListItem
+                param={job}
                 companyName={job.company}
                 logoUrl={job.company_logo}
                 jobTitle={job.title}
@@ -44,7 +52,7 @@ export default function Jobs() {
 
 const Content = styled.section`
   display: grid;
-  grid-template-rows: 100vh;
+  grid-template-rows: auto;
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 10px;
   margin-top: 42px;
