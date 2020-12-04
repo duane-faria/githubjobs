@@ -7,7 +7,7 @@ export async function getJobs(params) {
     const values = Object.values(params);
 
     fields.forEach((field, index) => {
-      if (values[index] !== undefined) {
+      if (values[index]) {
         query.push(`${field}=${values[index]}`);
       }
     });
@@ -19,6 +19,5 @@ export async function getJobs(params) {
     endpoint += `?${query}`;
   }
   const { data } = await Api.get(endpoint);
-
   return data;
 }

@@ -11,14 +11,14 @@ export default function Jobs() {
   const [jobs, setJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
-  const [loc, setLoc] = React.useState(undefined);
+  const [loc, setLoc] = React.useState('');
   const [fullTime, setFullTime] = React.useState(true);
-  const [place, setPlace] = React.useState(undefined);
-  const [desc, setDesc] = React.useState(undefined);
+  const [place, setPlace] = React.useState('');
+  const [desc, setDesc] = React.useState('');
 
   React.useEffect(() => {
     get({ location: loc || place, full_time: fullTime, description: desc });
-  }, [loc, fullTime, place, desc]);
+  }, [loc, fullTime, place]);
 
   async function get(location) {
     setLoading(true);
@@ -29,7 +29,11 @@ export default function Jobs() {
 
   return (
     <>
-      <SearchBar value={desc} onChange={setDesc} />
+      <SearchBar
+        value={desc}
+        onChange={setDesc}
+        search={() => get({ description: desc })}
+      />
       <Content>
         <Aside
           loc={loc}
@@ -43,8 +47,8 @@ export default function Jobs() {
           {loading &&
             Array(5)
               .fill()
-              .map(() => (
-                <Skeleton height={120} style={{ marginBottom: 20 }} />
+              .map((a) => (
+                <Skeleton key={a} height={120} style={{ marginBottom: 20 }} />
               ))}
           {jobs &&
             !loading &&

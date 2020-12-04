@@ -5,7 +5,7 @@ import imagebg from 'assets/images/backgroundImg.png';
 import colors from 'style/colors';
 import { icons } from 'constants/index';
 
-export default function SearchBar({ value, onChange }) {
+export default function SearchBar({ value, onChange, search }) {
   return (
     <SearchWrapper>
       <BunttonGroup>
@@ -14,7 +14,7 @@ export default function SearchBar({ value, onChange }) {
           value={value}
           onChange={({ target }) => onChange(target.value)}
         />
-        <SearchButton>Buscar</SearchButton>
+        <SearchButton onClick={search}>Buscar</SearchButton>
       </BunttonGroup>
     </SearchWrapper>
   );
@@ -66,6 +66,11 @@ const SearchButton = styled.button`
   border-radius: 5px;
   margin: 5px;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #00418e, 0 0 0 4px #1e86ff;
+  }
 `;
 
 const BunttonGroup = styled.div`
