@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
 import SearchBar from 'components/SearchBar';
 import Aside from 'components/Aside';
@@ -8,6 +9,7 @@ import { getJobs } from 'api/jobs';
 
 export default function Jobs() {
   const [jobs, setJobs] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
   const [loc, setLoc] = React.useState(undefined);
   const [fullTime, setFullTime] = React.useState(true);
@@ -19,8 +21,10 @@ export default function Jobs() {
   }, [loc, fullTime, place, desc]);
 
   async function get(location) {
+    setLoading(true);
     const data = await getJobs(location);
     setJobs(data);
+    setLoading(false);
   }
 
   return (
@@ -36,7 +40,14 @@ export default function Jobs() {
           setPlace={setPlace}
         />
         <div>
+          {loading &&
+            Array(5)
+              .fill()
+              .map(() => (
+                <Skeleton height={120} style={{ marginBottom: 20 }} />
+              ))}
           {jobs &&
+            !loading &&
             jobs.map((job) => (
               <ListItem
                 param={job}
