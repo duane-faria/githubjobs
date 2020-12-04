@@ -9,27 +9,32 @@ import { getJobs } from 'api/jobs';
 export default function Jobs() {
   const [jobs, setJobs] = React.useState([]);
 
+  const [loc, setLoc] = React.useState(undefined);
+  const [fullTime, setFullTime] = React.useState(true);
+  const [place, setPlace] = React.useState(undefined);
+  const [desc, setDesc] = React.useState(undefined);
+
   React.useEffect(() => {
-    async function get() {
-      let dataStoraged = localStorage.getItem('jobs');
-      if (dataStoraged) {
-        setJobs(JSON.parse(dataStoraged));
-        console.log('cache on');
-        console.log(jobs);
-        return;
-      }
-      const data = await getJobs();
-      setJobs(data);
-      localStorage.setItem('jobs', JSON.stringify(data));
-    }
-    get();
-  }, []);
+    get({ location: loc || place, full_time: fullTime, description: desc });
+  }, [loc, fullTime, place, desc]);
+
+  async function get(location) {
+    const data = await getJobs(location);
+    setJobs(data);
+  }
 
   return (
     <>
-      <SearchBar />
+      <SearchBar value={desc} onChange={setDesc} />
       <Content>
-        <Aside />
+        <Aside
+          loc={loc}
+          setLoc={setLoc}
+          fullTime={fullTime}
+          setFullTime={setFullTime}
+          place={place}
+          setPlace={setPlace}
+        />
         <div>
           {jobs &&
             jobs.map((job) => (

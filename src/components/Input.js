@@ -3,10 +3,21 @@ import styled from 'styled-components';
 
 import colors from 'style/colors';
 
-export default function Input({ icon, placeholder, containerStyle }) {
+export default function Input({
+  icon,
+  placeholder,
+  containerStyle,
+  value,
+  onChange,
+}) {
   return (
     <Container style={containerStyle}>
-      {icon && <Icon src={icon} />} <StyledInput placeholder={placeholder} />
+      {icon && <Icon src={icon} />}{' '}
+      <StyledInput
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
     </Container>
   );
 }
@@ -26,6 +37,7 @@ const Container = styled.div`
 `;
 
 const StyledInput = styled.input`
+  width: 100%;
   outline: none;
   border: none;
   padding-left: 5px;

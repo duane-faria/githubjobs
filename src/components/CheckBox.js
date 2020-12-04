@@ -4,14 +4,19 @@ import styled from 'styled-components';
 import { fonts, icons } from 'constants/index';
 import colors from 'style/colors';
 
-export default function CheckBox({ title, ...props }) {
-  const [checked, setChecked] = React.useState(false);
-
+export default function CheckBox({
+  title,
+  checked = false,
+  setChecked,
+  places = false,
+  ...props
+}) {
   return (
     <Label {...props}>
       <Checkbox
+        value={title}
         checked={checked}
-        onChange={(e) => setChecked(e.target.checked)}
+        onChange={(e) => setChecked(e.target.checked, e.target.value)}
       />
       <StyledCheckbox checked={checked} />
       {title}

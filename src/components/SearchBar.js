@@ -5,11 +5,15 @@ import imagebg from 'assets/images/backgroundImg.png';
 import colors from 'style/colors';
 import { icons } from 'constants/index';
 
-export default function SearchBar() {
+export default function SearchBar({ value, onChange }) {
   return (
     <SearchWrapper>
       <BunttonGroup>
-        <SearchInput placeholder='Título, empresas, nível, benefícios' />
+        <SearchInput
+          placeholder='Título, empresas, nível, benefícios'
+          value={value}
+          onChange={({ target }) => onChange(target.value)}
+        />
         <SearchButton>Buscar</SearchButton>
       </BunttonGroup>
     </SearchWrapper>
