@@ -1,4 +1,4 @@
-const allowCors = (fn) => async (req, res) => {
+const allowCors = (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   // another common pattern
@@ -11,11 +11,8 @@ const allowCors = (fn) => async (req, res) => {
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   );
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
+  res.status(200).end();
+  return;
 };
 
 const handler = (req, res) => {
@@ -23,4 +20,4 @@ const handler = (req, res) => {
   res.end(d.toString());
 };
 
-module.exports = allowCors(handler);
+module.exports = allowCors;
