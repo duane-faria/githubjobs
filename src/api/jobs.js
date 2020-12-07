@@ -19,10 +19,10 @@ export async function getJobs(params) {
     endpoint += `?${query}`;
   }
   const { data } = await Api.get(endpoint);
-  console.log(url + endpoint);
-  fetch(url + endpoint, {
+  // console.log(proxy);
+  fetch('/proxy', {
     method: 'GET',
-    mode: 'no-cors',
+    // mode: 'no-cors',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
