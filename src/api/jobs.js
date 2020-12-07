@@ -1,5 +1,5 @@
 import Api, { url } from 'api';
-
+import axios from 'axios';
 export async function getJobs(params) {
   let query = [];
   if (params) {
@@ -32,5 +32,8 @@ export async function getJobs(params) {
     .then((d) => console.log(d));
   // res = await res.json();
   // console.log(res);
+
+  const gambs = await axios.get('https://githubjobs-lac.vercel.app/proxy');
+  console.log(gambs, 'gambiarra');
   return data;
 }
