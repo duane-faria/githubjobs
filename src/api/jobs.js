@@ -1,5 +1,5 @@
-import Api, { url } from 'api';
-import axios from 'axios';
+import Api from 'api';
+
 export async function getJobs(params) {
   let query = [];
   if (params) {
@@ -14,22 +14,13 @@ export async function getJobs(params) {
   }
 
   let endpoint = `positions.json`;
+
   if (query.length) {
     query = query.join('&');
     endpoint += `?${query}`;
   }
-  const { data } = await Api.get(endpoint);
-  // // console.log(proxy);
 
-  try {
-    const gambs = await axios.get(
-      'https://githubjobs-lac.vercel.app/proxy/positions.json'
-    );
-    console.log(gambs, 'gambiarra');
-  } finally {
-    const gambs2 = await axios.get('/proxy');
-    console.log(gambs2, 'gambiarra2');
-  }
+  const { data } = await Api.get(endpoint);
+
   return data;
-  // return [];
 }
