@@ -18,7 +18,7 @@ export async function getJobs(params) {
     query = query.join('&');
     endpoint += `?${query}`;
   }
-  // const { data } = await Api.get(endpoint);
+  const { data } = await Api.get(endpoint);
   // // console.log(proxy);
   // fetch('https://githubjobs-lac.vercel.app/proxy', {
   //   method: 'GET',
@@ -39,6 +39,6 @@ export async function getJobs(params) {
     const gambs2 = await axios.get('/proxy');
     console.log(gambs2, 'gambiarra2');
   }
-  // return data;
-  return [];
+  return data;
+  // return [];
 }

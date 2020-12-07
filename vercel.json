@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/proxy", "destination": "https://jobs.github.com/positions.json?full_time=true" }
+    { "source": "/proxy:match", "destination": "https://jobs.github.com/:match" }
   ]
 }
