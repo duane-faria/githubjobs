@@ -20,18 +20,7 @@ export async function getJobs(params) {
   }
   const { data } = await Api.get(endpoint);
   // // console.log(proxy);
-  // fetch('https://githubjobs-lac.vercel.app/proxy', {
-  //   method: 'GET',
-  //   // mode: 'no-cors',
-  //   headers: {
-  //     Accept: 'application/json',
-  //     'Content-Type': 'application/json',
-  //   },
-  // })
-  //   .then((res) => res.json())
-  //   .then((d) => console.log(d));
-  // // res = await res.json();
-  // // console.log(res);
+
   try {
     const gambs = await axios.get('https://githubjobs-lac.vercel.app/proxy');
     console.log(gambs, 'gambiarra');
