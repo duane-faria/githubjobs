@@ -1,4 +1,4 @@
-import Api from 'api';
+import Api, { url } from 'api';
 
 export async function getJobs(params) {
   let query = [];
@@ -19,5 +19,18 @@ export async function getJobs(params) {
     endpoint += `?${query}`;
   }
   const { data } = await Api.get(endpoint);
+  console.log(url + endpoint);
+  fetch(url + endpoint, {
+    method: 'GET',
+    mode: 'no-cors',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((d) => console.log(d));
+  // res = await res.json();
+  // console.log(res);
   return data;
 }
