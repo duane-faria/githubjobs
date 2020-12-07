@@ -20,7 +20,7 @@ export async function getJobs(params) {
   }
   const { data } = await Api.get(endpoint);
   // console.log(proxy);
-  fetch('/proxy', {
+  fetch('https://githubjobs-lac.vercel.app/proxy', {
     method: 'GET',
     // mode: 'no-cors',
     headers: {
