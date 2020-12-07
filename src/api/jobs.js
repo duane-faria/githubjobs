@@ -22,7 +22,9 @@ export async function getJobs(params) {
   // // console.log(proxy);
 
   try {
-    const gambs = await axios.get('https://githubjobs-lac.vercel.app/proxy');
+    const gambs = await axios.get(
+      'https://githubjobs-lac.vercel.app/proxy/positions.json'
+    );
     console.log(gambs, 'gambiarra');
   } finally {
     const gambs2 = await axios.get('/proxy');

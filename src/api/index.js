@@ -5,7 +5,7 @@ const proxy = 'https://thingproxy.freeboard.io/fetch/';
 
 const api = axios.create({
   // baseURL: proxy + 'https://jobs.github.com/',
-  baseURL: '/proxy',
+  baseURL: '/proxy/',
 });
 
 export const url = proxy + 'https://jobs.github.com/';
