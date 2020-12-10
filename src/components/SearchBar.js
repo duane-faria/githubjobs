@@ -31,6 +31,9 @@ const SearchWrapper = styled.section`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  @media(max-width:380){
+    max-width: 100%;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -70,6 +73,9 @@ const SearchButton = styled.button`
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px #00418e, 0 0 0 4px #1e86ff;
+  }
+  @media(max-width:380px){
+    padding: 10px;
   }
 `;
 
